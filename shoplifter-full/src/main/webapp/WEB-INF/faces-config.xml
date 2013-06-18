@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+    
+    
+    <!--  <navigation-rule>
+        <description></description>
+        <from-view-id></from-view-id>
+        <navigation-case>
+            <from-action></from-action>
+            <from-outcome></from-outcome>
+            <if></if>
+            <to-view-id></to-view-id>
+        </navigation-case>
+    </navigation-rule>-->
+
+    <!-- toto treba opravit blbne polozka from view id  --> 
+    <navigation-rule>
+        <from-view-id>/welcome.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>loginSucessful</from-outcome>
+            <to-view-id>/pages/user/userOrders.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>loginFailed</from-outcome>
+            <to-view-id>/welcome.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>register</from-outcome>
+            <to-view-id>/pages/registration.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+        
+    <navigation-rule>
+        <from-view-id>/*</from-view-id> <!-- was /pages/* -->
+        <navigation-case>
+            <from-outcome>createOrder</from-outcome>
+            <to-view-id>/pages/user/createOrder.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>shopping</from-outcome>
+            <to-view-id>/pages/user/shopping.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>firends</from-outcome>
+            <to-view-id>/pages/user/friends.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>searchFriends</from-outcome>
+            <to-view-id>/pages/user/searchResult.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>settings</from-outcome>
+            <to-view-id>/pages/user/settings.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/pages/user/userOrders.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>userOders</from-outcome>
+            <to-view-id>/pages/user/userOrders.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>friendsOrders</from-outcome>
+            <to-view-id>/pages/user/friendsOrders.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

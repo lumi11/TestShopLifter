@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html" >
+    <ui:composition template="/pages/templates/boxTemplate.xhtml">
+        <ui:define name="content">
+            <h:form class="field">
+                <h:outputText value="Osobné údaje" class="header"/> <br/>
+                <h:outputText value="Meno"/> <h:inputText value="#{settings.data.name}"/> <br/>
+                <h:outputText value="Priezvisko"/>  <h:inputText value="#{settings.data.surrname}"/>  <br/>
+                <h:outputText value="Nove heslo"/>  <h:inputSecret redisplay="false"  value="#{settings.data.password}"/> <br/>
+                <h:commandButton value="Uprav" action="#{settings.dataChanged()}" /> <br/>
+                <br/>
+            </h:form>
+            <h:form class="field">
+                <h:outputText value="Bydlisko"  class="header"/> <br/>
+                <h:outputText value="Mesto"/> <h:inputText value="#{settings.data.city}"/>  <br/>
+                <h:outputText value="Ulica"/> <h:inputText value="#{settings.data.street}"/> <br/>
+                <h:outputText value="Číslo domu"/>  <h:inputText value="#{settings.data.streetNo}"/>  <br/>
+                <h:outputText value="PSČ"/>  <h:inputText value="#{settings.data.zipCode}"/> <br/>
+                <h:commandButton value="Uprav" action="#{settings.dataChanged()}" /> <br/>
+            </h:form>
+
+
+        </ui:define>
+
+        <ui:define name="userPromiseCart">
+            <h:outputText value="Spaaaam2"/>
+        </ui:define>
+    </ui:composition>
+</html>

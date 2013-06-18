@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <ui:composition template="/pages/templates/twoCollums.xhtml">
+        <ui:define name="leftFeed">
+            <h:outputText value="Výsledky vyhľadávania"/> <br/>
+            <c:if test="${searchResult.foundPeople.size() == 0}" > 
+                <h:outputText value="Zadaným kritériám nevyhovujú žiadne ososby" /> 
+            </c:if>
+            <ui:repeat value="#{searchResult.foundPeople}" var="friend" > 
+                <h:form class="field">
+                    <h:outputFormat value="{0} {1}  ">
+                        <f:param value="#{friend.name}"/>
+                        <f:param value="#{friend.surrname}"/>
+                    </h:outputFormat> <br/>
+                    <h:outputFormat value="{0} {1} {2} {3} "> 
+                        <f:param value="#{friend.city}"/>
+                        <f:param value="#{friend.street}"/>
+                        <f:param value="#{friend.streetNo}"/>
+                        <f:param value="#{friend.zipCode}"/>
+                    </h:outputFormat> <br/>
+                    <h:commandButton value="Pridaj" action="#{friends.reqestFriendship((friend.id))}" />
+                </h:form> 
+            </ui:repeat>
+        </ui:define>
+
+        <ui:define name="rightFeed">
+            <c:if test="${friends.friendsSuggest.size() > 0}" > 
+                <h:outputText value="Navrhované kontakty"/> <br/>
+            </c:if>
+            <ui:repeat value="#{friends.friendsSuggest}" var="friend" > 
+                <h:form class="field">   
+                    <h:outputFormat value="{0} {1}  ">
+                        <f:param value="#{friend.name}"/>
+                        <f:param value="#{friend.surrname}"/>
+                    </h:outputFormat> <br/>
+                    <h:outputFormat value="{0} {1} {2} {3} "> 
+                        <f:param value="#{friend.city}"/>
+                        <f:param value="#{friend.street}"/>
+                        <f:param value="#{friend.streetNo}"/>
+                        <f:param value="#{friend.zipCode}"/>
+                    </h:outputFormat> <br/>
+                    <h:commandButton value="Pridaj" action="#{friends.reqestFriendship((friend.id))}" />
+                </h:form>
+                <br/>   
+            </ui:repeat>
+            <h:outputText value="Spaaaaaaaaaaam"/>   
+        </ui:define>
+    </ui:composition>
+</html>

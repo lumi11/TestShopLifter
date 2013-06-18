@@ -1,0 +1,484 @@
+/* 
+    Document   : newStyle
+    Created on : Jun 10, 2013, 2:12:23 AM
+    Author     : martin
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+body{
+    background:url("http://localhost:8080/SimpleJSFApp/resources/images/wood.jpg") repeat;
+}
+/*
+    margin: 0 auto;
+    width: 960px;*/
+#header{
+    position:fixed; /* fixed in the screen*/
+    top:0px; /*stick it to the top*/
+    margin: 0; /*okraj */
+    padding: 0; /*vypln */
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 40px;
+    font-family: Arial;
+    text-shadow: 1px 1px 1px black; /*horizontal vertical blur*/
+    background: rgba(0,0,0,0.3); /**/
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+
+    box-shadow: 
+        inset 0px -1px 5px 1px rgba(255,255,255,0.3),
+        inset 0 -10px rgba(255,255,255,0.2),
+        inset 0 -10px 20px rgba(255,255,255,0.25),
+        inset 0 15px 30px rgba(0,0,0,0.3);
+
+
+}
+#header #items{
+    margin: 0 auto;
+    width: 960px;
+}
+
+#header .companyLogo{
+    margin-top: 10px;
+    margin-left: 0;
+    margin-bottom: 10px;
+    position: relative;
+    float: left;
+
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFFF00;
+}
+
+/*
+#header form{
+    /*right:100px;*/
+/* margin-top: 10px;
+ margin-left: 10px;
+ margin-bottom: 10px;
+ position: relative;
+ float:left;
+}*/
+
+#header .notificationArea{
+    margin-left: 10px;
+    float:left;
+}
+
+#header .serachArea{
+    padding-top: 8px;
+    margin-left: 150px;
+    float:left;
+}
+
+#header .logoutArea{
+    /*margin-left: 200px;*/
+    padding-top: 10px;
+    float:right;
+}
+
+#header form img{
+    margin-top: 3px;
+    margin-left: 5px;
+    position: relative;
+    float:left;
+}
+
+#header form img:hover{
+    margin-top: 6px;
+}
+
+#header form a{
+    margin: 0px 10px;
+
+    font-weight: normal;
+    font-size: 14px;
+    text-decoration: underline;
+    color: #FFFF00;
+}
+
+
+#leftBar{
+    position:fixed; /* fixed in the screen*/
+    left:0px; /*stick it to the top*/
+    top:40px;
+    margin: 0; /*okraj */
+    padding: 0; /*vypln */
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100px;
+    font-family: Arial;
+    text-shadow: 1px 1px 1px black; /*horizontal vertical blur*/
+    background: rgba(0,0,0,0.3); /**/
+    border-right: 1px solid rgba(0,0,0,0.5);
+
+    box-shadow: 
+        inset 0px -1px 5px 1px rgba(255,255,255,0.3),
+        inset 0 -10px rgba(255,255,255,0.2),
+        inset 0 -10px 20px rgba(255,255,255,0.25),
+        inset 0 15px 30px rgba(0,0,0,0.3);
+
+
+}
+
+#leftBar  .commandLink{
+    margin: 5px 0px;
+    font-weight: normal;
+    font-size: 14px;
+    text-decoration: underline;
+    color: #FFFF00;
+}
+
+
+#content{
+    position: relative;
+    top: 40px;
+    left: 40px;
+    margin: 0 auto;
+    width: 960px;
+    font-family: Arial;
+    /* background-color: rgba(255,255,255,0.3);    */
+}
+
+
+#content #left{
+    width:340px;
+    float:left;
+}
+
+
+#content #right{
+    width:220px;
+    float:left;
+}
+
+#content .header{
+    font-size: 14px;
+}
+/*
+#content form{
+    background-color: #CCCCC0;
+    padding: 5px 10px ;
+}*/
+
+#content .field{
+    background-color: rgba(255,255,0,0.5);
+    border-radius: 3px;
+    border-style: outset; /*outset, groove, ridge*/
+    padding: 5px 1px ;
+    font-size: small;
+}
+/*
+
+#header .menuBarItem .text{
+    font-weight: normal;
+    font-size: 14px;
+    text-decoration: blink;
+    color: #CC0000;
+}
+
+#header .notification{    
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    position: relative;
+    float:left;
+
+    color:white;
+    font-size: 12px;
+    float:left;
+    /* padding: 0px 10px; /*vypln top and bottom,  left and right */
+/* margin: -5px 0px; /*okraj top and bottom left and right, ladime ako je to vysoko    */ /*   
+}
+
+#header .menuBarItem .notification:hover{    
+ margin-top: -1px;
+}
+
+#header .serachArea{
+ margin-top: 10px;
+ margin-left: 200px;
+ margin-bottom: 10px;
+ position: relative;
+ float:left;
+}
+/*
+#header .logoutArea{
+ margin-top: 10px;
+ margin-left: 750px;
+ margin-bottom: 10px;
+ position: absolute;
+ float:left;
+
+}*/
+/*
+#header .logoutArea .button{
+    margin-top: 0;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    position: relative;
+    float:left;   smer odklial zacne vyplnat
+    color: #fff900;
+    font: Arial;
+    font-weight: normal;
+} */
+/*
+#header .companyLogo{
+    position: fixed; kurva musel som to fixnut takto
+    font-weight: normal;
+    font-size: 14px;
+    text-decoration: underline;
+    color:#CC0000; color of headings in website
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 10px;  
+}*/
+
+/*
+#header #logoutSection{
+    position: fixed; /*kurva musel som to fixnut takto*/
+/* font-weight: normal;
+ font-size: 14px;
+ text-decoration: underline;
+ color:#CC0000; /*color of headings in website*/
+/* margin-top: 10px;
+ margin-bottom: 5px;
+ margin-left: 10px;  
+}*/
+
+
+/*
+#header li {
+    list-style: none;
+    padding: 0px;
+    margin-bottom: 12px;
+}
+
+
+#header .companyLogo{
+    font-weight: normal;
+    font-size: 14px;
+    text-decoration: underline;
+    color:white ; /*color of headings in website*/
+/*  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 10px; 
+}
+
+
+#header #notifications{
+  float:left ;
+  width: auto;
+  margin: 5px 15px 0px; 
+  padding: 0px;
+  overflow: hidden;
+
+  position: absolute;
+  top:0px;
+  left:100px;
+  margin-top: 12px;
+}
+
+#header #logout{
+  float:right ;
+  width: auto;
+  margin: 5px 15px 0px; 
+  padding: 0px;
+  overflow: hidden;
+}
+
+#header #searching_part{
+  position: fixed;
+  top: 5px;
+  left: 400px; 
+  float:right;
+  width:auto;
+  margin: 5px 10px 10px; 
+  padding: 0;
+  overflow: hidden;
+}
+/*
+#footer {
+  position: fixed;
+  bottom: 0px; /* stick it to the bottom */
+/* margin: 0;
+ padding: 0;
+ left: 0;
+ right: 0;
+ width: 100%;
+ height: 40px;
+ font-family: Arial;
+ color: white; /*text color*/
+/*  text-shadow: 1px 1px 2px black; /*horizontal vertical blur color*/
+/*glass effect*/
+/*  border-top:  1px solid rgba(0,0,0,0.3);/*r,g,b,alpha - priehladnost*/
+/* background: rgba(0,0,0,0.9); /*sive */
+/*  background: rgba(0,255,0,0.3);
+  box-shadow: inset 0 1px rgba(255,255,255,0.4),
+      inset 0 10px rgba(255,255,255,0.2),
+      inset 0 10px 20px rgba(255,255,255,0.25),
+      inset 0 -15px 30px rgba(0,0,0,0.3);
+
+}
+
+#footer h2{
+  font-weight: normal;
+  font-size: 14px;
+  text-decoration: underline;
+  color:#CC0000; /*color of headings in website*/
+/*  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;  
+}
+
+
+
+#footer p{
+  color:white;
+  font-size: 12px;
+  float: left;
+  padding: 0px 10px; /*top and bottom, left and rigt*/
+/*  margin: 10px 0px; /*top and bottom, left and rigt*/   
+/*}
+
+
+#footer img{
+    border:none;
+}
+
+#footer li ul{
+    list-style: none;
+    padding: 0px;
+    margin-bottom: 12px;
+}
+
+.clear{ /*to do not put all on one line*/
+/*  clear:both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+}
+
+#footer .whiteBorder{
+  border: 1px solid white;
+}
+
+#footer .img_left{
+  float:left;
+  margin-right: 10px;
+  width: 40px;
+}
+
+#footer .black_box{
+  background: rgba(0,0,0,0.4);
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+#footer #notifications{
+  float:right;
+  width: auto;
+  margin: 5px 15px 0px; /*top, left and right bottom*/
+/* padding: 0px;
+ overflow: hidden;
+}
+
+/*
+#footer #notifications span{
+ margin-right: 12px;
+ float:left;
+ width: 24px;
+ padding: 0px;
+ height: 32px;
+ list-style: none;*/  /*ensure to dont have any buletpoints*/ 
+/*}*/
+/*
+#footer #notifications span:hover{
+    margin-top: -1px;
+}
+
+a.notiFicationIcons span{
+    display: none;
+    font-size: 12px;
+    color:white;
+    bottom: 45px;
+    width: 150px;
+    position: absolute;
+    border: 1px solid #333333;
+    border-radius: 3px;
+    margin-left: -75px;
+    background:  rgba(0,0,0,0.4);
+}
+
+a.notiFicationIcons:hover span{
+    display:block;
+}
+
+#footer_menu{
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+
+#footer_menu span{
+    list-style: none;
+    float:left;
+    font-size:12px;
+    padding: 12px 14px 14px 14px;
+    border-right: 1px solid rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.1);
+}
+
+#footer_menu li:hover{
+    background: rgba(0,0,0,0.3);
+}
+
+#footer_menu li a{
+    display: block;
+    color:#CCCCCC;
+    text-decoration: none;
+}
+
+#footer_menu li a:hover{
+    color:white;
+}
+
+#footer_menu .homeButton{
+    padding: 5px 8px 0px 14px;
+    border:none;
+    background: none;
+}
+
+#footer_menu .homeButton a{
+    background: url("images/bob-s.jpg") top left no-repeat;
+    width:36px;
+    height: 30px;
+}
+
+#footer_menu .homeButton:hover{
+    background: none;
+
+}*/
+
+/* Drop up menu*/
+/*
+#footer_menu li ul.dropup{
+    display: none;
+}
+
+#footer_menu li:hover ul.dropup{
+    display: block;
+    position: absolute;
+    margin: 0 0 0 -15px;
+    bottom: 40px;
+    border: 1px solid #111111;
+    border-bottom: none;
+    background: rgba(0,0,0,0.15);
+    border-radius: 7px 7px 0px 0px;
+}*/

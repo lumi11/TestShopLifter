@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Tato stranka bude obsahovat uvitaciu stranku a registracny forumular -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:head>
+
+    </h:head>
+    <h:body>          
+        <f:view encoding="utf-8" contentType="application/xhtml+xml">
+            <h:outputStylesheet library="css" name="cssLayout.css" />            
+            <div  class="Layout11_header">   
+                <h:form id="loginForm">
+                    <h:outputText  value="Vitaj na nasej stranke" /> <br/>
+
+
+                    <h:outputText value="meno"/>
+                    <h:inputText value="#{welcome.username}" label="username"  />
+                    <h:outputText value="heslo" />
+                    <h:inputSecret redisplay="false" value="#{welcome.password}"/>
+                    <h:commandButton id="login" value="Prihlasit" action="#{welcome.login()}" >
+                    </h:commandButton>
+                </h:form>
+            </div>
+
+            <div class="Layout11_1">   
+                <h:panelGroup >
+                    <h:graphicImage value="#{resource['images:shoplifter-006.jpg']}"/> 
+                    <h:outputText value="Toto je nas maskot"/>
+                </h:panelGroup>
+            </div>
+            <div class="Layout11_2">
+                <h:form id="registerForm">
+                    <h:outputText value="Zaregistruj sa este dnes"/> <br/>
+                    <h:outputText value="meno" />
+                    <h:inputText  value="#{welcome.newUser.name}"/>  <br/>
+                    <h:outputText value="priezvisko" />  
+                    <h:inputText  value="#{welcome.newUser.surrname}"/> <br/>
+                    <h:outputText value="email"/>
+                    <h:inputText value="#{welcome.newUser.email}" title="email" /> <br/>
+                    <h:outputText value="heslo" />
+                    <h:inputSecret redisplay="false" value="#{welcome.newUser.password}"/> <br/>
+                    <h:commandButton id="register" value="Zaregistruj" action="#{welcome.register()}"/> 
+                </h:form>
+
+            </div>
+
+            <div class="Layout11_3">
+                <h:outputText value="Toto je spam3"  />
+            </div>
+
+            <div class="Layout11_4">
+                <h:outputText value="Toto je spam4"  />
+            </div>
+        </f:view>
+    </h:body>
+
+</html>

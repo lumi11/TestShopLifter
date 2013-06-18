@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    tato stranka bude obsahovat template pre vstetky stranky
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type"
+              content="text/html; charset=UTF-8" />
+
+        <title>Shopping mate</title>
+    </h:head>
+    <h:body>
+        <f:view encoding="utf-8" contentType="application/xhtml+xml">
+            <h:outputStylesheet library="css" name="newStyle.css"/>
+
+            <div id="header">
+                <div id="items">
+                    <h:link value="MateShopping" outcome="friendsOrders" class="companyLogo"/> 
+                    <h:form class="notificationArea">
+                        <h:commandLink action="friends">
+                            <h:graphicImage library="images" name="user-friend-icon.png"  class="notification" /> 
+                        </h:commandLink>
+                        <h:commandLink action="createOrder">
+                            <h:graphicImage library="images" name="additem.png"  class="notification" /> 
+                        </h:commandLink>
+                        <h:commandLink action="shopping">
+                            <h:graphicImage library="images" name="cart_icon.png"  class="notification" /> 
+                        </h:commandLink>
+                    </h:form>
+
+                    <h:form class="serachArea">
+                        <h:inputText value="#{userInfo.searching}"/>
+                        <h:commandButton value="Hľadaj"  action="searchFriends"  />
+                    </h:form>
+                    <h:form class="logoutArea">
+                        <h:commandLink value="Nastavenia" action="settings"  />
+                        <h:commandLink value="Odhlástiť" action="settings" />   
+                    </h:form>
+                </div>
+            </div>
+
+            <h:form id="leftBar">
+                <div class="field">
+                    <h:graphicImage library="images" name="avatar.jpg"  /> 
+                    <br/>
+                    <h:commandLink value="#{userInfo.name}" action="userOrders" /> <br/>
+                    <h:commandLink value="#{userInfo.surrname}" action="userOrders" />
+                    <br/>
+                </div>
+           <!--     <h:commandLink value="Moje požiadavky" action="userOrders" class="commandLink"/> <br/> <br/>
+                <h:commandLink value="Požiadavky kamarátov" action="friendsOrders" class="commandLink"/> <br/> <br/>
+                <h:commandLink value="Som v obchode" action="shopping" class="commandLink"/> <br/> <br/>
+                <h:commandLink value="Kamoši" action="firends" class="commandLink"/> <br/> <br/> -->
+            </h:form>
+            <ui:insert name="contentFeed"/>
+        </f:view>
+    </h:body>
+</html>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+    <ui:composition template="/pages/templates/twoCollums.xhtml">
+
+        <ui:define name="leftFeed">
+            <c:if test="${userOrders.finished.size() > 0 }" >
+                <h:outputText value="Kamoši mi nakúpili" /> <br/>
+            </c:if>
+            <ui:repeat value="#{userOrders.finished}" var="order" > 
+                <h:form class="field">
+                    <h:outputText value="#{order.shopper} " /> 
+                    <h:outputText value="#{order.shoppedTime}" >
+                        <f:convertDateTime pattern="MM-dd-yyyy hh:mm" type="date" />
+                    </h:outputText> <br/>
+
+                    <ui:repeat value="#{order.items}" var="item" > 
+                        <h:outputFormat value="{0} {1}:{2} ">
+                            <f:param value="#{item.name}"/>
+                            <f:param value="počet"/>
+                            <f:param value="#{item.amount}"/>
+                        </h:outputFormat> 
+                        <c:if test="#{item.bought}" > 
+                            <h:graphicImage library="images" name="yes.jpg"/>
+                        </c:if>
+                        <c:if test="#{!item.bought}" > 
+                            <h:graphicImage library="images" name="no.jpg"/>
+                        </c:if>
+                        <br/>       
+                    </ui:repeat>
+                    <h:commandButton value="Nákup som už vyzdvihol" />
+                </h:form>
+            </ui:repeat>
+
+            <c:if test="${userOrders.promisedToUser.size() >0 }" >
+                <h:outputText value="Kamoši mi sľúbili" /> <br/>
+            </c:if>
+            <ui:repeat value="#{userOrders.promisedToUser}" var="order" > 
+                <h:form class="field">
+                    <h:outputText value="#{order.shopper} " /> 
+                    <h:outputText value="#{order.shoppedTime}" >
+                        <f:convertDateTime pattern="MM-dd-yyyy hh:mm" type="date" />
+                    </h:outputText> <br/>
+
+                    <ui:repeat value="#{order.items}" var="item" > 
+
+                        <h:outputFormat value="{0} {1}:{2} ">
+                            <f:param value="#{item.name}"/>
+                            <f:param value="počet"/>
+                            <f:param value="#{item.amount}"/>
+                        </h:outputFormat> 
+                        <c:if test="#{item.bought}" > 
+                            <h:graphicImage library="images" name="yes.jpg"/>
+                        </c:if>
+                        <c:if test="#{!item.bought}" > 
+                            <h:graphicImage library="images" name="no.jpg"/>
+                        </c:if>
+                        <br/>       
+
+                    </ui:repeat>
+                    <h:commandButton value="Zrušiť nákup" />
+                </h:form>
+            </ui:repeat> 
+
+        </ui:define> 
+
+        <ui:define name="rightFeed">
+            <c:if test="${userOrders.waiting.size() == 0 }" >
+                <h:outputText value="Žiaden z nákupov nečaká" /> <br/>
+            </c:if>
+            <c:if test="${userOrders.waiting.size() > 0}" >
+                <h:outputText value="Čakajúce nákupy" /> <br/>
+            </c:if>
+            <ui:repeat value="#{userOrders.waiting}" var="order" > 
+                <h:form class="field">
+                    <h:outputText value="Deadline: "/>
+                    <h:outputText value="#{order.deadline}">
+                        <f:convertDateTime pattern="MM-dd-yyyy hh:mm" type="date" />
+                    </h:outputText> <br/>
+                    <ui:repeat value="#{order.items}" var="item" > 
+
+                        <h:outputFormat value="{0} {1}:{2} ">
+                            <f:param value="#{item.name}"/>
+                            <f:param value="počet"/>
+                            <f:param value="#{item.amount}"/>
+                        </h:outputFormat> 
+                        <br/>
+                    </ui:repeat>
+                    <h:commandButton value="Upraviť"/>
+                    <h:commandButton value="Zrušiť"/>
+                </h:form>
+            </ui:repeat> 
+        </ui:define>
+    </ui:composition>
+</html>

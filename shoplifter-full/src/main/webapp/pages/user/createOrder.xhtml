@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <ui:composition template="/pages/templates/boxTemplate.xhtml">
+        <ui:define name="content">
+
+            <c:if test="${userOrders.waiting.size() == 0 }" >
+                <h:outputText value="Ešte si nepridal žiaden nákup" /> <br/>
+            </c:if>
+
+            <h:outputText value="Nový nákup"/> <br/>
+            <div class="field">
+                <h:outputText value="Deadline: " class="header"/>
+                <h:inputText value="#{createOrder.compilingCart.deadline}" >
+                    <f:convertDateTime pattern="MM-dd-yyyy hh:mm" type="date" />
+                </h:inputText>  
+                <br/>
+                <h:outputText value="Odmena: " class="header"/>
+                <h:inputText value="#{createOrder.compilingCart.reward}"/> 
+
+                <br/>
+                <ui:repeat value="#{createOrder.compilingCart.items}" var="item" > 
+                    <h:form>
+                        <h:outputFormat value="{0} {1}:{2} ">
+                            <f:param value="#{item.name}"/>
+                            <f:param value="počet"/>
+                            <f:param value="#{item.amount}"/>
+                        </h:outputFormat> 
+
+                        <h:commandButton value="Zrušiť"/>
+                        <h:commandButton value="Upraviť"/>
+                    </h:form>
+                </ui:repeat>
+                <h:form>
+                    <h:outputText value="Položka" class="header"/>
+                    <h:inputText value="#{createOrder.compilingItem.name}"/> 
+                    <h:outputText value="Množstvo" class="header"/> 
+                    <h:inputText value="#{createOrder.compilingItem.amount}"/> 
+                    <h:commandButton value="Pridaj" action="#{createOrder.addItemToCart()}" /> 
+                </h:form>
+                <h:form>
+                    <h:commandButton value="Hotovo" action="#{createOrder.createOrder()}"/>  
+                </h:form>
+            </div>
+
+
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <c:if test="${userOrders.waiting.size() > 0}" >
+                <h:outputText value="Tvoje nevybavené nákupy" /> <br/>
+            </c:if>
+            <ui:repeat value="#{userOrders.waiting}" var="order" > 
+                <h:form class="field">
+                    <h:outputText value="Deadline: "/>
+                    <h:outputText value="#{order.deadline}">
+                        <f:convertDateTime pattern="MM-dd-yyyy hh:mm" type="date" />
+                    </h:outputText> <br/>
+                    <ui:repeat value="#{order.items}" var="item" > 
+
+                        <h:outputFormat value="{0} {1}:{2} ">
+                            <f:param value="#{item.name}"/>
+                            <f:param value="počet"/>
+                            <f:param value="#{item.amount}"/>
+                        </h:outputFormat> 
+                        <br/>
+                    </ui:repeat>
+                    <h:commandButton value="Upraviť"/>
+                    <h:commandButton value="Zrušiť"/>
+                </h:form>
+            </ui:repeat> 
+        </ui:define>
+
+    </ui:composition>
+
+</html>

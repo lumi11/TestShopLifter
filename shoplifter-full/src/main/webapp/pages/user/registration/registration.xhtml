@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <h:outputLabel value="value = 10" rendered="#{registration.registrationStep eq \"findFriends" }" >
+            <h:outputText value="najdi svojich priatelov"/>
+            <h:form>
+              <!--  <h:inputText value="#{user.searching}"/>-->
+                <h:commandButton value="Hľadaj"  action="searchFriends"  />
+            </h:form>
+
+        </h:outputLabel> 
+
+        <c:if test="${registration.registrationStep == "addOrder" }">
+            <h:outputText value="zverejni nakup ktory chces pridat"/>
+            <h:form>
+               <!--  <h:inputText value="#{user.searching}"/>-->
+                <h:commandButton value="Hľadaj"  action="promiseOrder"  />
+            </h:form>
+        </c:if>
+
+        <c:if test="${registration.registrationStep == "promiseOrder" }">
+            <h:outputText value="Tvoji kamosi by chceli realizovat tieto nakupy, pomozes im?"/>
+            <h:form>
+           <!--  <h:inputText value="#{user.searching}"/>-->
+                <h:commandButton value="Hľadaj"  action="searchFriends"  />
+            </h:form>
+        </c:if>
+
+
+    </h:body>
+</html>

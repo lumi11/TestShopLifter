@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="ShopLifterPU" transaction-type="JTA">
+		<jta-data-source>java:jboss/datasources/ShopLifterDS</jta-data-source>
+		<class>cz.muni.fi.pv243.shoplifter.entities.ShopItem</class>
+		<class>cz.muni.fi.pv243.shoplifter.entities.Address</class>
+		<class>cz.muni.fi.pv243.shoplifter.entities.Person</class>
+		<class>cz.muni.fi.pv243.shoplifter.entities.ShopList</class>
+		<class>cz.muni.fi.pv243.shoplifter.entities.Friendship</class>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+	        <property name="hibernate.show_sql" value="false" />
+	        <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+	        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/shoplifter"/>
+	        <property name="hibernate.hbm2ddl.auto" value="update"/>
+	        <property name="hibernate.default_schema" value="shoplifter"/>
+	        <property name="hibernate.connection.username" value="shoplifter"/>
+	        <property name="hibernate.connection.password" value="pv243"/>
+		</properties>
+	</persistence-unit>
+</persistence>
